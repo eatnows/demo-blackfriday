@@ -1,11 +1,11 @@
-package com.eatnows.demoblackfriday
+package com.blackfriday.member
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class DemoBlackfridayApplication
+class MemberApplication
 
 fun main(args: Array<String>) {
-    runApplication<DemoBlackfridayApplication>(*args)
+    runApplication<MemberApplication>(*args)
 }
