@@ -6,6 +6,6 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-COPY ../build/libs/demo-blackfriday.jar /app/
+COPY build/libs/member.jar /app/
 
-CMD ["java", "-jar", "demo-blackfriday.jar"]
+CMD ["java", "-jar", "member.jar"]
