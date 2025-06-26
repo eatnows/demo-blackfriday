@@ -1,21 +1,11 @@
-plugins {
-    kotlin("jvm")
-}
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
-group = "com.blackfriday"
-version = "unspecified"
+val jar: Jar by tasks
+val bootJar: BootJar by tasks
 
-repositories {
-    mavenCentral()
-}
+bootJar.enabled = true
+jar.enabled = false
 
 dependencies {
-    testImplementation(kotlin("test"))
-}
 
-tasks.test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(21)
 }
