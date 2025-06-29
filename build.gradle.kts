@@ -27,11 +27,14 @@ subprojects {
         testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
         testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-        implementation("org.springframework.kafka:spring-kafka")
-        implementation("org.springframework.boot:spring-boot-starter-data-cassandra")
 
-        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-        implementation("com.mysql:mysql-connector-j")
+        if (name != "search") {
+            implementation("org.springframework.kafka:spring-kafka")
+            implementation("org.springframework.boot:spring-boot-starter-data-cassandra")
+            implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+            implementation("com.mysql:mysql-connector-j")
+        }
+        implementation("org.springframework.boot:spring-boot-starter-data-redis")
     }
 }
 
