@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3360/demo_blackfriday?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: password
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  cassandra:
+    keyspace-name: catalog
+    port: 9042
+    contact-points: localhost
+    local-datacenter: cql
+    schema-action: create_if_not_exists
