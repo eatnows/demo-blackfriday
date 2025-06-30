@@ -2,6 +2,8 @@ package com.blackfriday.catalog.service
 
 import com.blackfriday.catalog.cassandra.entity.Product
 import com.blackfriday.catalog.cassandra.repository.ProductRepository
+import com.blackfriday.catalog.dto.ProductTagDto
+import com.blackfriday.catalog.feign.SearchClient
 import com.blackfriday.catalog.mysql.entity.SellerProduct
 import com.blackfriday.catalog.mysql.repository.SellerProductRepository
 import org.springframework.stereotype.Service
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service
 class CatalogService(
     private val sellerProductRepository: SellerProductRepository,
     private val productRepository: ProductRepository,
+    private val searchClient: SearchClient,
 ) {
     fun registerProduct(
         sellerId: Long,
@@ -32,10 +35,24 @@ class CatalogService(
             tags
         )
 
+        val dto = ProductTagDto(
+            product.id,
+            tags,
+        )
+        searchClient.addTagCache(dto)
+
         return productRepository.save(product)
     }
 
     fun deleteProduct(productId: Long) {
+        val product = productRepository.findById(productId).orElseThrow()
+
+        val dto = ProductTagDto(
+            product.id,
+            product.tags,
+        )
+        searchClient.removeTagCache(dto)
+
         productRepository.deleteById(productId)
         sellerProductRepository.deleteById(productId)
     }
