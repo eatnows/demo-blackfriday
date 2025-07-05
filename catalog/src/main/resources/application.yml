@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3360/demo_blackfriday?useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://mysql-server:3306/demo_blackfriday?useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: password
   jpa:
@@ -11,6 +11,6 @@ spring:
   cassandra:
     keyspace-name: catalog
     port: 9042
-    contact-points: localhost
-    local-datacenter: cql
+    contact-points: cassandra-node-0
+    local-datacenter: dcl
     schema-action: create_if_not_exists

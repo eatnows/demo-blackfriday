@@ -6,6 +6,6 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-COPY build/libs/payment.jar /app/
+COPY build/libs/search.jar /app/
 
-CMD ["java", "-jar", "payment.jar"]
+CMD ["java", "-jar", "search.jar"]

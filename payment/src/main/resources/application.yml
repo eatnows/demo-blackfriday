@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3360/demo_blackfriday?useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://mysql-server:3306/demo_blackfriday?useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: password
   jpa:
